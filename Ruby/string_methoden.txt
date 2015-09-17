@@ -20,3 +20,7 @@
 		var.empty?
 				#Methoden mit einem "?" am Ende geben prinzipiell einen 
 					Boolean(true oder false) zurück
+		var.ljust(30,'.'')
+				#String wird linksbündig ausgegeben
+		var.capitalize
+				#Beginnt den Strin mit einem Großbuchstaben
