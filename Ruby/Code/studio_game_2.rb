@@ -1,10 +1,10 @@
 def say_hello(name, health = 0)
-	var = "Ich bin #{name} mit dem Wert #{health} um #{time}"
+	"Ich bin #{name} mit dem Wert #{health} um #{time}"
 end
 
 def time
-	current_time = Time.new
-	current_weekday = current_time.strftime("%R")
+	Time.new.strftime("%R")
+	#current_weekday = current_time.strftime("%R")
 end
 
 
