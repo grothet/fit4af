@@ -1,0 +1,29 @@
+Eine Klasse enthält Methoden und Eigenschaften.
+Die Eigenschaften charakterisieren ein Objekt.
+In der Klasse selbst ist die Eigenschaft als Instanzvariable definiert;
+d.h. es kann auf diese Variable nur innerhalb der Klasse zugegriffen werden.
+Soll ein Zugriff auch von außerhalb erfolgen, 
+dann wird die Instanzvariable zu einer eigenschaft
+
+Beipiele und Methoden
+a. Methoden definieren:
+	def title
+		@title
+	end
+
+	def title=(ptitle)
+		@title = ptitle
+	end
+	#nun kann von außen auf die eigenschaft title zugegriffen werden.
+	#obj = Movie.new('Batman')
+	#puts obj.title 				#gibt den Wert aus
+	#obj.title = 'superman' #belegt die Eigenschaft neu
+
+b. shortcuts:
+	attr_accessor :title
+	#falls die Eigenschaft sowol gelesen, als auch geschrieben werden soll
+	attr_reader :title
+	#nur Lesezugriff
+	attr_writer :title
+	#nur schreibzugriff
+
