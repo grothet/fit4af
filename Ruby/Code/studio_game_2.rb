@@ -4,7 +4,6 @@ end
 
 def time
 	Time.new.strftime("%R")
-	#current_weekday = current_time.strftime("%R")
 end
 
 
