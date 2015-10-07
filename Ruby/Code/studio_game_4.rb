@@ -32,7 +32,7 @@ class Player
 
 end
 
-player1 = Player.new("1234567890", 100)
+player1 = Player.new("Peter", 100)
 player2 = Player.new("Dennis")
 
 puts player1.health
