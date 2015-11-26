@@ -1,0 +1,7 @@
+
+Anlegen eines neuen Datensatzes:
+	a = Event.new(name: "Alt-J", location: "Berlin", price: 40.00)
+	a.save
+
+	//Alternativ
+	Event.create(name: "Beatles", location: "Manchester", price: 10.00)

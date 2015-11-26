@@ -1,0 +1,8 @@
+Die Datenbank wird beim Anlegen des Projektes initialisiert oder erzeugt.
+
+Eine Tabelle in der Datenbank wir über Rails-Consolenbefehl angelegt
+	rails g model event name:string
+Dieser Befehl erzeugt eine Migration Datei
+das ist eine Klasse mit der eine Tabelle in der Datenbank ereugt wird
+der Vorgang des Erzeugens startet man mit dem Consolenbefehl:
+	rake db:mirgrate
