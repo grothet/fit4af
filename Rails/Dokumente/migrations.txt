@@ -6,3 +6,13 @@ Dieser Befehl erzeugt eine Migration Datei
 das ist eine Klasse mit der eine Tabelle in der Datenbank ereugt wird
 der Vorgang des Erzeugens startet man mit dem Consolenbefehl:
 	rake db:mirgrate
+
+Soll eine Tabelle verändert werden: neue Spalten, Spalten löschen, Spalten verändern,
+dann wird das über eine migration gemacht.
+	rails g migration AddFieldsToEvent start_at:datetime
+
+Mit einem rake db:migrate:status wird der Stand angezeigt;
+sind alle Migrations in der Datenbank angekommen?
+
+Soll eine Migration rückgängig gemacht werden, lautet der Befehl:
+	rake db:rollback

@@ -1,8 +1,10 @@
 <h1>Events</h1>
-
+<p>Folgende<%= @events.size %> Events sind vorhanden</p>
 <table> 
 	<tr>
 	<th>NAME</th>
+	<th>Beschreibung</th>
+	<th>Datum</th>
 	<th>Location</th>
 	<th>Price</th>
 	</tr>
@@ -10,8 +12,10 @@
 	<% @events.each do |event| %>
 	<tr>
 		<td><%=  event.name %></td>
+		<td><%=  event.description %></td>
+		<td><%=  event.start_at %></td>
 		<td><%=  event.location %></td>
-		<td><%=  event.price %></td>
+		<td><%=  number_to_currency(event.price, :unit => " € ") %></td>
 	</tr>
 <%end %>
 </table>

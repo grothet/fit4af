@@ -5,3 +5,6 @@ Anlegen eines neuen Datensatzes:
 
 	//Alternativ
 	Event.create(name: "Beatles", location: "Manchester", price: 10.00)
+
+	Ausgabe erzeugen
+	Event.all

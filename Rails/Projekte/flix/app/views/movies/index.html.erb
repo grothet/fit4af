@@ -1,8 +1,13 @@
 <h1>MOVIES</h1>
 
-<ul>
+<table border = "1">
  <% @movies.each do |movie| %>
-<li><%=  movie %></li>
-
+ <tr>
+<th><%=  movie.title %></th>
+<th><%=  movie.rating %></th>
+<th><%=  movie.total_gross %></th>
+<th><%=  movie.description %></th>
+<th><%=  movie.released_on %></th>
+</tr>
 <%end %>
-</ul>
+</table>
