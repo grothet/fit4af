@@ -1,13 +1,25 @@
 <h1>MOVIES</h1>
 
 <table border = "1">
+<thead>
+<tr>
+	<th>title</th>
+	<th>rating</th>
+	<th>total_gross</th>
+	<th>description</th>
+	<th>movie.released_on</th>
+</tr>
+</thead>
+
+<tbody>
  <% @movies.each do |movie| %>
- <tr>
-<th><%=  movie.title %></th>
-<th><%=  movie.rating %></th>
-<th><%=  movie.total_gross %></th>
-<th><%=  movie.description %></th>
-<th><%=  movie.released_on %></th>
+<tr>
+	<td><%=  movie.title %></td>
+	<td><%=  movie.rating %></td>
+	<td><%=  movie.total_gross %></td>
+	<td><%=  movie.description %></td>
+	<td><%=  movie.released_on %></td>
 </tr>
 <%end %>
+</tbody>
 </table>
