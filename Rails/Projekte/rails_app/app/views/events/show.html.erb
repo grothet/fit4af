@@ -1,0 +1,14 @@
+<h1><%= @event.name %></h1>
+<p><%= @event.description%></p>
+
+<p>
+	<h3>Wann</h3>
+	<%= @event.start_at %>
+	<h3>Wo</h3>
+	<%= @event.location %>
+	<h3>Preis</h3>
+	<%= @event.price %>
+</p>
+
+<p><%= link_to "Alle Events anzeigen", events_path %></p>
+

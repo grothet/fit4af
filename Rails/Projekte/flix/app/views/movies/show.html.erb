@@ -1,0 +1,16 @@
+<h1><%= @movie.title %></h1>
+<p><%= @movie.description%></p>
+
+<p>
+	<h3>Rating</h3>
+	<%= @movie.rating %>
+	<h3>Start</h3>
+	<%= @movie.released_on %>
+	<h3>Einnahmen</h3>
+	<%= @movie.total_gross %>
+</p>
+
+<p>
+	<%= link_to "Alle Events anzeigen", movies_path %>
+	<%= link_to "Back", request.referer%>
+</p>
