@@ -8,3 +8,25 @@ Anlegen eines neuen Datensatzes:
 
 	Ausgabe erzeugen
 	Event.all
+
+	Methoden im Model:
+	Es gibt zwei Arten von Methoden.	
+	Die sogenannten Klassenmethoden, die mit dem Model-Namen aufgerufen werden, und die 
+	Objektmethoden, die mit einer Instanz der Klasse aufgerufen werden.
+
+	Beispiel: Klassenmethoden:
+		Aufruf: (im Controller)
+			@events = Event.upcoming
+		Definition: (im Model)
+			def self.upcoming
+				where(start_at > ?, Time.now)
+			end
+
+	Beispiel: Objektmethoden
+		Aufruf: (im View, im Controller)
+			@event = Event.find(1)
+			@event.free?
+		Definition: (im Model)
+				def free?
+					self.price.blank?
+				end

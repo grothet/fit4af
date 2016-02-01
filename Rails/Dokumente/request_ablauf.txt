@@ -10,6 +10,6 @@ c. geht zur index-Aktion
 	def index
 		..
 	end
-d. geht zur Darstellngsebene:
+d. geht zur Darstellungsebene:
 	views/events/index.html.erb
 	ersetzt dort den Ruby-Code und schickt das Ergebnis zum Browser

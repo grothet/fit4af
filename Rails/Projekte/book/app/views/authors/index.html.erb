@@ -1,0 +1,24 @@
+<h1>Bücher</h1>
+<p></p>
+<table> 
+	<tr>
+	<th>NAME</th>
+	<th>Beschreibung</th>
+	<th>Datum</th>
+	<th>Location</th>
+	<th>Price</th>
+	<th>Anzeigen</th>
+	</tr>
+
+	<% @authors.each do |author| %>
+	<tr>
+		<td><%=  name(author.vorname, author.nachname) %></td>
+		<td><%=  author.nachname %></td>
+		<td><%=  author.anzahl %></td>
+		<td><%=  author.beschreibung %></td>
+		<td><%=  author.geburtsdatum %></td>
+		<td><%= link_to "Show", author_path(author.id)%></td>
+	
+	</tr>
+<%end %>
+</table>

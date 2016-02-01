@@ -15,6 +15,8 @@
 	<th>description</th>
 	<th>released_on</th>
 	<th>Anzeigen</th>
+	<th>Bearbeiten</th>
+	<th>Löschen</th>
 </tr>
 </thead>
 
@@ -27,7 +29,11 @@
 	<td><%=  truncate(movie.description, length: 40, seperator: " ") %></td>
 	<td><%=  movie.released_on %></td>
 	<td><%= link_to "Show", movie_path(movie.id)%></td>
+	<td><%= link_to "Edit", edit_movie_path(movie.id)%></td>
+	<td><%= link_to "Del", movie_path(movie.id), method: :delete, data: {confirm: "Wirklich löschen?"} %></td>
 </tr>
 <%end %>
 </tbody>
 </table>
+
+<%= link_to "Neuer Movie anlegen", new_movie_path %>
