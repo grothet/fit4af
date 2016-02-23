@@ -23,5 +23,24 @@
 		<%= f.datetime_select :released_on %>
 	</p>
 
+	<p>
+		<%= f.label :poster_image_file %><br>
+		<%= f.text_field :poster_image_file, size: 30, placeholder: "Gif,Jpg etc." %>
+	</p>
+	<p>
+		<%= f.label :cast %><br>
+		<%= f.text_field :cast %>
+	</p>
+
+	<p>
+		<%= f.label :direction %><br>
+		<%= f.text_field :direction %>
+	</p>
+
+	<p>
+		<%= f.label :duration%><br>
+		<%= f.number_field :duration %>
+	</p>
+
 	<p><%= f.submit %></p>
 <% end %>

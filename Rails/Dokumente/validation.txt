@@ -1,0 +1,20 @@
+Mit validations können Eingeben des Benutzers im Formular geprüft werden.
+Referenz: http://guides.rubyonrails.org/active_record_validations.html#numericality
+
+Abfragen werden im Model realisiert: 
+	validates :name, presence: true 	//Feld muss ausgefüllt sein
+	validates :description, length: { minimum: 25 }	//Zeichenläge min. 25 Zeichen
+	validates :price, numericality: { only_integer: true } //Nur Nummerneingaben möglich
+
+
+Errorabfrage im _form:
+	<% if @event.errors.any? %>
+		<h3>Opps! Der <%= @event.class.name.titleize.downcase %> konnte nicht gespeichert werden </h3>
+		Korrigieren Sie die folgenden <%= pluralize(@event.errors.count, "Error") %>
+		<ul>
+			<% @event.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<%end%>
+		</ul>
+	<%end%>
+

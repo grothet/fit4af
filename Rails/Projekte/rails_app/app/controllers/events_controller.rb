@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
+	before_action :set_sidebar_events
 	def index
 		@events = Event.upcoming
 	end
 
 	def show
-		#@event = Event.find(params[:id])
+		#@sidebar_events = Event.all
 	end
 
 	def new
@@ -13,8 +14,12 @@ class EventsController < ApplicationController
 	end
 
 	def create 
-		@event = Event.create(event_params)
-		redirect_to events_url
+		@event = Event.new(event_params)
+		if @event.save
+				redirect_to events_url
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -23,7 +28,11 @@ class EventsController < ApplicationController
 
 	def update
 		@event.update(event_params)
-		redirect_to events_url
+		if @event.save
+				redirect_to events_url
+		else
+			render :edit
+		end
 	end
 
 	def destroy
@@ -33,11 +42,14 @@ class EventsController < ApplicationController
 
 	private
 		def event_params
-			params.require(:event).permit(:name, :description, :location, :price, :start_at)
+			params.require(:event).permit(:name, :image_file, :capacity, :description, :location, :price, :start_at)
 		end
 
 		def set_event
 			@event = Event.find(params[:id])
 		end
-	
+		
+		def set_sidebar_events
+			@sidebar_events = Event.upcoming
+		end
 end

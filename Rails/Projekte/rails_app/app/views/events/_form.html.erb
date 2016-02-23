@@ -1,5 +1,14 @@
 <h3>Neuer Event</h3>
 <%= form_for(@event) do |f| %>
+	<% if @event.errors.any? %>
+		<h3>Opps! Der <%= @event.class.name.titleize.downcase %> konnte nicht gespeichert werden </h3>
+		Korrigieren Sie die folgenden <%= pluralize(@event.errors.count, "Error") %>
+		<ul>
+			<% @event.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<%end%>
+		</ul>
+	<%end%>
 	<p>
 		<%= f.label :name %><br>
 		<%= f.text_field :name %>
@@ -16,8 +25,19 @@
 
 	<p>
 		<%= f.label :price %><br>
-		<%= f.number_field :price %>
+		<%= f.text_field :price %>
 	</p>
+
+	<p>
+		<%= f.label :image_file %><br>
+		<%= f.text_field :image_file, size: 30, placeholder: "GIF, JPG, PNG als Dateityp" %>
+	</p>
+
+	<p>
+		<%= f.label :capacity %><br>
+		<%= f.number_field :capacity %>
+	</p>
+
 	<p>
 		<%= f.label :start_at %><br>
 		<%= f.datetime_select :start_at %>

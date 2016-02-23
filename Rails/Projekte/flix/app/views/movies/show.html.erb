@@ -1,6 +1,6 @@
 <h1><%= @movie.title %></h1>
 <p><%= @movie.description%></p>
-
+<p><%= image_for(@movie) %></p>
 <p>
 	<h3>Rating</h3>
 	<%= @movie.rating %>
@@ -8,6 +8,12 @@
 	<%= @movie.released_on %>
 	<h3>Einnahmen</h3>
 	<%= @movie.total_gross %>
+	<h3>Besetzung</h3>
+	<%= @movie.cast %>
+	<h3>Regie</h3>
+	<%= @movie.direction %>
+	<h3>Laufzeit</h3>
+	<%= @movie.duration %>
 </p>
 
 <p>
