@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
 	before_action :set_sidebar_events
 	def index
-		@events = Event.upcoming
+		@events = Event.all#upcoming
 	end
 
 	def show
@@ -16,8 +16,10 @@ class EventsController < ApplicationController
 	def create 
 		@event = Event.new(event_params)
 		if @event.save
-				redirect_to events_url
+			flash[:notice] = "Erfolgreich gespeichert."
+			redirect_to events_url
 		else
+			#flash[:alert] = "Fehler"
 			render :new
 		end
 	end
@@ -27,9 +29,8 @@ class EventsController < ApplicationController
 	end
 
 	def update
-		@event.update(event_params)
-		if @event.save
-				redirect_to events_url
+		if @event.update(event_params)
+				redirect_to events_url, notice: "Update war erfolgreich."
 		else
 			render :edit
 		end
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
 
 	def destroy
 			@event.destroy
-			redirect_to events_url
+			redirect_to events_url, alert: "Löschen war erfolgreich."
 	end
 
 	private

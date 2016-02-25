@@ -17,4 +17,23 @@ Errorabfrage im _form:
 			<%end%>
 		</ul>
 	<%end%>
+-----------------------------------------------------------------------------------
 
+Die Kontrolle von Benutzereingaben finden im Model statt.
+Beispiele:
+	Feld muss ausgefüllt sein:
+		validates :title, duration, presence: true
+	Länge von:
+		validates :description, length: {minimum: 25}
+	Überprüfung ob Zahl:
+		validates :total_gross, numericality: {greater_than_or_equal: 0, only_integer: true}
+	Überprüfung auf Dateiendung:
+		validates :poster_image_file, allow_blank: true, format: {with: /\w+.(gif|jpg|png)\z/i, message: "soll ein GIF, JPG oder PNG Bild sein"}
+	Überprüfung auf bestimmten Inhalt:
+		RATINGS = %w(G PG PG-13 R NC-17)
+		validates :rating, inclusion: {in: RATINGS}
+
+Weitere Anpassung:
+Im Controller findet in den Actions: update und create eine Überprüfung statt ob es Fehler gibt. Falls ja wird das Formular neu geladen.
+
+Im View muss eine Ausgabe der Fehlermeldung stattfinden.

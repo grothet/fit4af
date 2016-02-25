@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
+	has_many :registrations, dependent: :destroy
 
 	validates :name, presence: true
-	validates :description, length: { minimum: 25 }
+	validates :description, length: { minimum: 10}
 	validates :price, numericality: { only_integer: true }
 
 	def free?

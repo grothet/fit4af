@@ -1,5 +1,15 @@
 <h3>Neuer Movie</h3>
 <%= form_for(@movie) do |f| %>
+	<% if @movie.errors.any? %>
+		<h3>Opps! Der <%= @movie.class.name.titleize.downcase %> konnte nicht gespeichert werden </h3>
+		Korrigieren Sie die folgenden Errors
+		<ul>
+			<% @movie.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<%end%>
+		</ul>
+	<%end%>
+
 	<p>
 		<%= f.label :title%><br>
 		<%= f.text_field :title %>
@@ -16,7 +26,7 @@
 
 	<p>
 		<%= f.label :total_gross %><br>
-		<%= f.number_field :total_gross%>
+		<%= f.text_field :total_gross%>
 	</p>
 	<p>
 		<%= f.label :released_on %><br>

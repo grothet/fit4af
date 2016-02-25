@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 	before_action :set_movie, only: [:show, :edit, :update, :destroy]
 	def index
-		@movies = Movie.released
+		@movies = Movie.all#released
 		#@movies = Array.new
 		#@movies = ["Iron Man", "Superman", "Spider Man"]
 	end
@@ -15,21 +15,30 @@ class MoviesController < ApplicationController
 	end
 
 	def create 
-		@movie = Movie.create(movie_params)
-		redirect_to movies_url
+		@movie = Movie.new(movie_params)
+		if @movie.save
+				redirect_to movies_url, notice:"Erfolgreich gespeichert"
+		else
+			flash[:alert] = "Speichern nicht möglich."
+			render :new
+		end
 	end
 
 	def edit
 	end
 
 	def update
-		@movie.update(movie_params)
-		redirect_to movies_url
+		if @movie.update(movie_params)
+				redirect_to movie_url, notice:"Ereignis erfolgreich geändert"
+		else
+			flash[:alert] = "Speichern nicht möglich."
+			render :edit
+		end
 	end
 
 	def destroy
 			@movie.destroy
-			redirect_to movies_url
+			redirect_to movies_url, alert:"Ereignis erfolgreich gelöscht"
 	end
 
 	private
