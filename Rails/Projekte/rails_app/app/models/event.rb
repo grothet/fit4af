@@ -5,9 +5,18 @@ class Event < ActiveRecord::Base
 	validates :description, length: { minimum: 10}
 	validates :price, numericality: { only_integer: true }
 
+
 	def free?
 		self.price.present? && self.price > 0
 	end
+
+	def spots_left
+		if capacity.zero?
+			0
+		else
+			capacity - registrations.size
+		end
+	end	
 
 	def self.upcoming
 		where("start_at >= ?", Time.now).order("start_at")

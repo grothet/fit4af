@@ -17,6 +17,9 @@
 </p>
 
 <p>
-	<%= link_to "Alle Events anzeigen", movies_path %>
-	<%= link_to "Back", request.referer%>
+	<div class="button-group">
+		<%= link_to "Alle Events anzeigen", movies_path, class: "button"%>
+		<%= link_to "Back", request.referer, class: "button" %>
+		<%= link_to "Review", new_movie_review_path(@movie.id), class: "button" %>
+	</div>
 </p>

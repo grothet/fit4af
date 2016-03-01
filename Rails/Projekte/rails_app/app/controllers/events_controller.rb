@@ -50,7 +50,5 @@ class EventsController < ApplicationController
 			@event = Event.find(params[:id])
 		end
 		
-		def set_sidebar_events
-			@sidebar_events = Event.upcoming
-		end
+
 end

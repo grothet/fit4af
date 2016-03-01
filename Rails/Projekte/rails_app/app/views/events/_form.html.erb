@@ -1,14 +1,6 @@
 <h3>Neuer Event</h3>
 <%= form_for(@event) do |f| %>
-	<% if @event.errors.any? %>
-		<h3>Opps! Der <%= @event.class.name.titleize.downcase %> konnte nicht gespeichert werden </h3>
-		Korrigieren Sie die folgenden <%= pluralize(@event.errors.count, "Error") %>
-		<ul>
-			<% @event.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<%end%>
-		</ul>
-	<%end%>
+	<%=render "shared/errors", object: @event %>
 	<p>
 		<%= f.label :name %><br>
 		<%= f.text_field :name %>
