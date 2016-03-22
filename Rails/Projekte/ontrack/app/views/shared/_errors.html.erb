@@ -1,0 +1,11 @@
+	<% if object.errors.any? #objekt wird mit dem render als lokale Variable übergeben bsp: @prject%>
+	<div class="panel">
+		<h3>Opps! Das <%= object.class.name.titleize.downcase %> konnte nicht gespeichert werden </h3>
+		Korrigieren Sie die folgenden <%= pluralize(object.errors.count, "Error") %>
+		<ul>
+			<% object.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<%end%>
+		</ul>
+	</div>
+	<%end%>

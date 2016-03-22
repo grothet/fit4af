@@ -1,0 +1,9 @@
+<h3>Projekt: <%= @project.title %></h3>
+
+<div class="panel">
+	Startet am: <%= @project.start_date %>
+	<hr>
+	<%= @project.description %>
+</div>
+
+<%= link_to "Projekt Tasks anzeigen", project_tasks_path(@project) %>
