@@ -22,3 +22,4 @@ Initialisieren
 		b. git add . -A
 		c. git commit -am "Beschreibung der Änderungen"
 		d. git push origin master  //git pull origin master -> lädt die Datein aus dem Online Repository
+		e. git status //Zeigt an, ob es etwas zu übertragen gibt

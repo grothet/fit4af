@@ -1,0 +1,15 @@
+
+image_tag
+	Über image_tag wird direkt auf das Verzeichnis /app/assets/images verwiesen. Der Dateiname wird in der Datenbank abgelegt und über movie.<spaltenname> eingefügt.
+
+	Bsp. Helper:
+		def image_for(movie)
+			if movie.poster_image_file.blank?
+				image_tag("dummy.jpg")
+			else
+				image_tag(movie.poster_image_file)
+			end
+		end
+
+	Aufruf:
+		image_tag(@movie)
