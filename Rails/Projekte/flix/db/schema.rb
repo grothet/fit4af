@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301170943) do
+ActiveRecord::Schema.define(version: 20160418174838) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -37,5 +37,12 @@ ActiveRecord::Schema.define(version: 20160301170943) do
   end
 
   add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string  "name"
+    t.string  "email"
+    t.string  "password_digest"
+    t.boolean "admin"
+  end
 
 end

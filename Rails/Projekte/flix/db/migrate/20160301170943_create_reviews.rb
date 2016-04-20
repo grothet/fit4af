@@ -5,7 +5,6 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :stars
       t.text :comment
       t.integer :movie_id
-      t.references :movie, index: true, foreign_key: true
 
       t.timestamps null: false
     end

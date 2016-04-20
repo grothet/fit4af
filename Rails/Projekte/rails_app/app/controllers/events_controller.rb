@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
 	before_action :set_event, only: [:show, :edit, :update, :destroy]
 	before_action :set_sidebar_events
+	before_action :require_signin, except: [:index]
+	before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@events = Event.all#upcoming
 	end
@@ -9,7 +12,7 @@ class EventsController < ApplicationController
 		#@sidebar_events = Event.all
 	end
 
-	def new
+	def new	
 		@event = Event.new
 	end
 

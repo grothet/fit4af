@@ -8,5 +8,17 @@
     <ul>
       <li><%= link_to "Alle Events anzeigen", events_path%></li>
     </ul>
+     <ul class="right">
+      <% if current_user%>
+        <li><%= link_to current_user.name, user_path(current_user.id)%></li>
+        <li><%= link_to "SignOut", session_path, method: :delete %> </li>
+      <%else%>
+
+      <li><%= link_to "SignIn", signin_path%></li> |
+      <li><%= link_to "SignUp", signup_path%></li>
+      <%end%>
+    </ul>
   </div>
+
+
 </nav>
