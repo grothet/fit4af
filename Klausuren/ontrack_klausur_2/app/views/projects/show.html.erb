@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @project.start_date %>
+</p>
+
+<strong>Mitarbeiter:</strong>
+	<ul>
+		<% @project.employees.each do |emp| %>
+		<%= form_tag worked_hours_path, method: "POST" do %>
+		<li>
+			<%= emp.nachname %>
+			<%= emp.id %>
+			<%= select_tag "hours", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>".html_safe %>
+<!-- 			<%=hidden_field(:post, :project_id, :class => "create_input")%> -->
+<!-- 			<%=hidden_field(:post, :employee_id, :class => "create_input")%> -->
+			<%= submit_tag "Eintragen" %>
+
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

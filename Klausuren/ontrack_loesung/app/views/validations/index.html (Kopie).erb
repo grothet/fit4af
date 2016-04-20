@@ -1,0 +1,15 @@
+<h1>Listing Validations for <%= @project.title %></h1>
+<p>Ranking: <%= create_ranking(@project) %></p>
+
+<ul>
+  <% @validations.each do |validation| %>
+   <li> 
+  <%= form_tag worked_hour_path(@project.id, employee.id), method: "put" do %>
+  <%= validation.username %>&nbsp;&nbsp;
+  <%= validation.ranking %> &nbsp;&nbsp;
+  <%= select_tag "ranking", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>".html_safe %>
+  <%= submit_tag "Bewerten" %>
+  <% end %>
+    </li>
+<% end %>
+</ul>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @validation.project_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @validation.comment %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @validation.username %>
+</p>
+
+<p>
+  <strong>Ranking:</strong>
+  <%= @validation.ranking %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @validation.project %>
+</p>
+
+<%= link_to 'Edit', edit_project_validation_path(@project.id, @validation.id) %> |
+<%= link_to 'Back', project_validations_path %>
