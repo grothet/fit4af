@@ -2,7 +2,11 @@ class MoviesController < ApplicationController
 	before_action :set_movie, only: [:show, :edit, :update, :destroy]
 	before_action :require_signin, except: [:index]
 	before_action :require_admin, only: [:edit, :update, :destroy, :create]
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 47a8b057d6edd347c1ddfa3acb641179d9bd44b1
 	def index
 		@movies = Movie.all#released
 		#@movies = Array.new

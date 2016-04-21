@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		#@sidebar_events = Event.all
+		@likers = @event.likers
 	end
 
 	def new	
