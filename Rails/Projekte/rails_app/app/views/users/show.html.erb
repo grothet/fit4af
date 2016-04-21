@@ -14,13 +14,22 @@
   <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
  <%end%>
 <br>
-
+<hr>
 <% if @user.registrations.any?%>
-	<h2>Registriert für: </h2>
+	<h3>Registriert für: </h3>
 	<ul>
 		<%@user.registrations.each do |registration| %>
 		<li> <%= link_to registration.event.name, registration.event%></li>
 		<%end%>
 	<%end %>
 	</ul>
+<hr>
+<% if@liked_events.any? %>
+	<h3> Liked Events </h3>
+	<ul>
+	<% @liked_events.each do |event| %>
+		<li><%= link_to event.name, event %> </li>
+	<%end%> 
+	</ul>
+<%end%>
 <%= link_to 'Back', users_path %>
