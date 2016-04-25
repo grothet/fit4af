@@ -12,7 +12,7 @@
 	<tbody>
 		<% @reviews.each do |v| %>
 			<tr>
-				<td><%= v.name %></td>
+				<td><%= v.user.name %></td>
 				<td><%= v.stars %></td>
 				<td><%= v.comment %></td>
 				<td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, movie_review_path(@movie.id, v.id), method: :delete, data: {confirm: "Wirklich löschen"}%></td>

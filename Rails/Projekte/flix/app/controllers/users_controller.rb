@@ -2,11 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_signin, except: [:new, :create]
   before_action :require_correct_user, only: [:edit, :update, :destroy]
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 47a8b057d6edd347c1ddfa3acb641179d9bd44b1
 
   # GET /users
   # GET /users.json
