@@ -12,16 +12,22 @@
 	<%= pluralize(@event.capacity, "spot") %>
 </p>
 
-<% if @likers.any? %>
-	<h3> Likers </h3>
-	<ul>
-	<% @likers.each do |user| %>
-		<li><%= link_to user.name, user %> </li>
-	<%end%> 
-	</ul>
+<h3>Likers</h3>
+<ul id="add_liker">
+	<% if @likers.any? %>
+		<% @likers.each do |user| %>
+			<li><%= link_to user.name, user %> </li>
+		<%end%> 
+	<%else%>
+		<li id="no_liker">Sei der erste Liker!!</li>
+	<%end%>
+</ul>
+
+<% if @current_like %>
+	<%= button_to "Unlike", event_like_path(@event, @current_like), class: "button", method: :delete %>
+<%else%>
+	<%= button_to "Like", event_likes_path(@event), remote: true, class: "button" %>
 <%end%>
-
-
 <p>
 	<div class="button-group">
 		<%= link_to "Alle Events anzeigen", events_path, class: "button" %>

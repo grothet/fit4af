@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418174838) do
+ActiveRecord::Schema.define(version: 20160428165943) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["movie_id"], name: "index_favorites_on_movie_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160418174838) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "name"
     t.integer  "stars"
     t.text     "comment"
     t.integer  "movie_id"
@@ -36,11 +47,13 @@ ActiveRecord::Schema.define(version: 20160418174838) do
     t.integer  "user_id"
   end
 
+  add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id"
+
   create_table "users", force: :cascade do |t|
     t.string  "name"
     t.string  "email"
     t.string  "password_digest"
-    t.boolean "admin"
+    t.boolean "admin",           default: false
   end
 
 end

@@ -16,6 +16,12 @@
 	<%= @movie.duration %>
 </p>
 
+
+<% if @current_like %>
+	<%= button_to "Unlike", movie_favorite_path(@movie, @current_like), class: "button", method: :delete %>
+<%else%>
+	<%= button_to "Like", movie_favorites_path(@movie), class: "button" %>
+<%end%>
 <p>
 	<div class="button-group">
 		<%= link_to "Alle Events anzeigen", movies_path, class: "button"%>
