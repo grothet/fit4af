@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :description, length: { minimum: 10}
-	validates :price, numericality: { only_integer: true }
+	validates :price, numericality: #{ only_integer: true }
 
 
 	def free?
