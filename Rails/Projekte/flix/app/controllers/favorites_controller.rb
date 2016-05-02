@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 	before_action :set_movie
 
 	def create
-		@movie.favorites << current_user
+		@movie.fans << current_user
 		redirect_to @movie, notice: "Als Favorit gespreichert"
 	end
 

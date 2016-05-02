@@ -1,2 +1,5 @@
-$("#add_liker").append("<li><%= @current_user.name %></li>");
+$("#add_liker").append("<li id='like_<%= @current_user.likes.find_by(event_id: @event.id).id %>'><%= @current_user.name %></li>");
 $("#no_liker").hide();
+$("#like_button").hide();
+$("#unlike_button").show();
+$("#unlike_button").html("<%= j button_to("Unlike", event_like_path(@event, @current_like), class: "button", method: :delete, remote: true) %>");
