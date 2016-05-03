@@ -10,7 +10,7 @@ do
 	
 	if [[ $auswahl = "1" ]]
 	then
-		echo "Git status wird geprüft"
+		echo "Git status wird geprüft..."
 		git status
 	fi
 
@@ -19,8 +19,8 @@ do
 		echo "Hochladen..."
 		git add . -A
 		read -p "Bezeichnung: " bezeichnung
-		git commit -am "$bezeichnung"
+		git commit -am date #"$bezeichnung"
 		git push origin master
 	fi
 done
-echo "Exit"
+echo "Exit..."
