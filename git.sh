@@ -16,6 +16,7 @@ do
 		git add . -A
 		read -p "Bezeichnung: " bezeichnung
 		git commit -am "$bezeichnung"
+		git push origin master
 	fi
 done
 echo "Exit"
