@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
 	def destroy
 		favorite = current_user.favorites.find(params[:id])
 		favorite.destroy
-		redirect_to @event, notice: "Gut gemacht"
+		redirect_to @movie, alert: "Von der Favoriten-Liste gestrichen"
 	end
 
 

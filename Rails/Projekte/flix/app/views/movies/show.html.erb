@@ -16,10 +16,21 @@
 	<%= @movie.duration %>
 </p>
 
+<%  if @fans.any? %>
+	<h3>Fans:</h3>
+	<ul>
+		<% @fans.each do |fan| %>
+			<li>
+				<%= (User.find_by(id: "#{fan.user_id}")).name  %>
+			</li>
+		<%end%>
+	</ul>
+<%end%>
 
-<% if @current_like %>
-	<%= button_to "Unlike", movie_favorite_path(@movie, @current_like), class: "button", method: :delete %>
+<% if @current_fan %>
+	<%= button_to "Unlike", movie_favorite_path(@movie, @current_fan), class: "button", method: :delete %>
 <%else%>
+	<h5>Sei der erste Fan!!</h5>
 	<%= button_to "Like", movie_favorites_path(@movie), class: "button" %>
 <%end%>
 <p>
