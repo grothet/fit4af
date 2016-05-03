@@ -2,6 +2,8 @@
 
 while [[ $auswahl != "3" ]]
 do
+	Datum=$(date +%Y-%m-%d)
+
 	echo " 1: Status Prüfen"
 	echo " 2: Daten werden in Github hochgeladen"
 	echo " 3: Exit"
@@ -19,7 +21,7 @@ do
 		echo "Hochladen..."
 		git add . -A
 		read -p "Bezeichnung: " bezeichnung
-		git commit -am date #"$bezeichnung"
+		git commit -am "$Datum, $bezeichnung"
 		git push origin master
 	fi
 done
