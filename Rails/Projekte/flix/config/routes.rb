@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
  
   resources :movies do
+    collection do
+      get 'hits'
+      get 'flops'
+      get 'upcoming'
+      get 'recent'
+    end
     resources :reviews
     resources :favorites
   end

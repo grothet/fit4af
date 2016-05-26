@@ -5,7 +5,16 @@ class EventsController < ApplicationController
 	before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-		@events = Event.all#upcoming
+		#Hier wird der Filer mit an die URL angehängt und abgefragt
+		if params[:filter] == "upcoming"
+			@events = Event.upcoming
+		else
+			@events = Event.all#upcoming
+		end
+	end
+
+	def past
+		@events = Event.past
 	end
 
 	def show

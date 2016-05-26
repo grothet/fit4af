@@ -17,6 +17,22 @@ class MoviesController < ApplicationController
 		end
 	end
 
+	def hits
+		@movies = Movie.hits
+	end
+
+	def flops
+		@movies = Movie.flops
+	end
+
+	def upcoming
+		@movies = Movie.upcoming
+	end
+
+	def recent
+		@movies = Movie.recent
+	end
+
 	def new
 		@movie = Movie.new
 	end

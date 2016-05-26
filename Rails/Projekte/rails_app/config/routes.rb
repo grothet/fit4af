@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :users
 
   resources :events do
+    #Hier wird eine neue Action angelegt, die im Controller definiert werden kann
+    collection do
+      get 'past'
+    end
     resources :registrations
     resources :likes
   end

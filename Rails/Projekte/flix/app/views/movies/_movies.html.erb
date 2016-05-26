@@ -1,0 +1,44 @@
+<h1>
+<%if @movies.size == 1 %>
+	MOVIE 
+<%else %>
+	MOVIES 
+<%end %>
+</h1>
+
+<table border = "1">
+<thead>
+<tr>
+	<th>Titel</th>
+	<th>Bewertung</th>
+	<th>Umsatz</th>
+	<th>Beschreibung</th>
+	<th>Angelaufen</th>
+	<th>Anzeigen</th>
+	<% if current_user_admin? %>
+	<th>Bearbeiten</th>
+	<th>Löschen</th>
+	<%end %>
+</tr>
+</thead>
+
+<tbody>
+ <% @movies.each do |movie| %>
+<tr>
+	<td><%=  movie.title %></td>
+	<td><%=  movie.rating %></td>
+	<td><%=  compare(movie) %></td>
+	<td><%=  truncate(movie.description, length: 40, seperator: " ") %></td>
+	<td><%=  movie.released_on %></td>
+	<td><%= link_to "Show", movie_path(movie.id)%></td>
+	<% if current_user_admin? %>
+	<td><%= link_to "Edit", edit_movie_path(movie.id)%></td>
+	<td><%= link_to "Del", movie_path(movie.id), method: :delete, data: {confirm: "Wirklich löschen?"} %></td>
+	<%end %>
+</tr>
+<%end %>
+</tbody>
+</table>
+<% if current_user_admin? %>
+<%= link_to "Neuer Movie anlegen", new_movie_path %>
+<%end%>
