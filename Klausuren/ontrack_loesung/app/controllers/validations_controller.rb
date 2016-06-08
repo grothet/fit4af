@@ -68,7 +68,8 @@ class ValidationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_validation
-      @validation = Validation.find(params[:id])
+      @validation = Validation.all
+      #.find(params[:id])
     end
 
     def set_project

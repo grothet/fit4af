@@ -9,9 +9,9 @@ class Movie < ActiveRecord::Base
 	validates :poster_image_file,  allow_blank: true, format: { with: %r{\.(gif|jpeg|png)\Z}i}
 	RATINGS = %w(G PG PG-13 R NC-17)
 		validates :rating, inclusion: {in: RATINGS}
+
 	RATING_OPTIONS = ['G', 'PG', 'PG-13', 'R', 'NC-17']
-
-
+	
 	def flop?
 		total_gross.blank? || total_gross < 100
 	end
