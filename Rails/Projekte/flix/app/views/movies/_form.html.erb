@@ -21,7 +21,7 @@
 
 	<p>
 		<%= f.label :rating %><br>
-		<%= f.text_field :rating %>
+		<%= f.select :rating, Movie::RATING_OPTIONS, prompt: "Bitte wählen" %>
 	</p>
 
 	<p>
