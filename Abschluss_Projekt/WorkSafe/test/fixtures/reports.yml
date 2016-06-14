@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  report_id: 1
+  wann: 2016-05-25 18:51:13
+  ort: MyText
+  beschr_ort: MyText
+  ereignis: MyText
+  kategorie: 1
+
+two:
+  user_id: 1
+  report_id: 1
+  wann: 2016-05-25 18:51:13
+  ort: MyText
+  beschr_ort: MyText
+  ereignis: MyText
+  kategorie: 1
