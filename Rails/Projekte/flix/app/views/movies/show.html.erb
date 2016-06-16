@@ -1,6 +1,6 @@
 <h1><%= @movie.title %></h1>
 <p><%= @movie.description%></p>
-<p><%= image_for(@movie) %></p>
+<p><%= image_tag @movie.poster_image_file.url(:standard) %></p>
 <p>
 	<h3>Rating</h3>
 	<%= @movie.rating %>

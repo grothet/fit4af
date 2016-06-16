@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+	mount_uploader :image_file, AvatarUploader
+	
 	has_many :registrations, dependent: :destroy
 	has_many :likes, dependent: :destroy
 	has_many :likers, through: :likes, source: :user

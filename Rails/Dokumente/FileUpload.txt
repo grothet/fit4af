@@ -1,0 +1,48 @@
+
+sudo apt-get update
+sudo apt-get install libmagickwand-def libmagickcore-def imagemagick
+
+das gem einbinden:
+	Im Gemfile eintragen:
+		gem 'carrierwave'
+		gem 'rmagick'
+		gem 'mini_magick'
+	...dann bundle install
+
+Für die Verwendung von Carrierwave -> Neue Klasse erstellen:
+	rails g uploader Avatar
+
+Model zuweisen:
+	mount_uploader :image_file, AvatarUploader
+	eine Spalte von Typ string ist nötig hier -> image_file 
+
+Im Formular wird ein file_field verwendet
+	bsp: f.file_field :image_file
+
+Bilder auf Maß skallieren:
+	im Avatar folgende kommenierungen entfernen:
+	  include CarrierWave::RMagick
+	  
+
+Versionen zur bildgröße eintragen:
+	  version :large do
+    		process :resize_to_limit => [600,600]
+  	  end
+
+	  version :thumb do
+	    resize_to_fill(150,150)
+	  end
+
+	  version :standard do 
+	    resize_to_fill(300,300)
+	  end
+Zum Aufrum mit version:
+
+BSP: 	image_tag movie.poster_image_file.url(:standard) 
+
+
+
+
+
+
+

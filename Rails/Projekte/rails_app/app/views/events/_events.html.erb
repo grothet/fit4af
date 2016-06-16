@@ -4,6 +4,7 @@
 	<thead>
 		<tr>
 		<th>NAME</th>
+		<th> </th>
 		<th>Beschreibung</th>
 		<th>Datum</th>
 		<th>Location</th>
@@ -20,6 +21,7 @@
 	<% @events.each do |event| %>
 	<tr>
 		<td><%=  event.name %></td>
+		<td><%= image_tag event.image_file.url(:thumb) %></td>
 		<td><%=  event.description %></td>
 		<td><%=  event.start_at %></td>
 		<td><%=  event.location %></td>
