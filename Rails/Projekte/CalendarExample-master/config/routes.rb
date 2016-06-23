@@ -1,28 +1,6 @@
-Rails.application.routes.draw do
-  
-
-  get 'calendars/show'
-
-  root "events#index"
-  get 'signup' => 'users#new'
-  get 'signin' => 'sessions#new'
-
-  resource :session
-  resources :users
-
-  resources :events do
-    #Hier wird eine neue Action angelegt, die im Controller definiert werden kann
-    collection do
-      get 'past'
-    end
-    resources :registrations
-    resources :likes
-  end
-  
-  #get "events" => "events#index"
-  #get "events/:id" => "events#show"
-
-
+CalendarExample::Application.routes.draw do
+  resource :calendar, only: [:show], controller: :calendar
+  root to: "calendar#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
