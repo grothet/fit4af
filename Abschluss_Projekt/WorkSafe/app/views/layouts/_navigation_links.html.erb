@@ -4,9 +4,13 @@
       <li class="has-dropdown">
         <a href="#">Menu</a>
         <ul class="dropdown">
-          <li><%= link_to "erstens", root_path%></li>
-          <li><%= link_to "zweitens", root_path%></li>
-          <li><%= link_to "usw...", root_path%></li>
+          <% if current_user %>
+            <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+            <li><%= link_to "Abmelden" , session_path, method: :delete %></li>
+          <%else%>
+            <li><%=link_to "Anmelden", signin_path %></li>
+            <li><%=link_to "Einschreiben", signup_path %></li>
+          <%end%>
         </ul>
       </li>
     </ul>

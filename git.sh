@@ -26,7 +26,7 @@ do
 		git push origin master
 	fi
 	
-	if [[ §auswahl = "3" ]]
+	if [[ $auswahl = "3" ]]
 	then
 		echo "Runterladen..."
 		git pull origin master

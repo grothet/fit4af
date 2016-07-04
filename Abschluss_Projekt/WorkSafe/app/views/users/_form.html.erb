@@ -27,10 +27,14 @@
     <%= f.label :division %><br>
     <%= f.text_field :division %>
   </div>
+
+  <% if current_user_admin? %>
   <div class="field">
-    <%= f.label :admin %><br>
+    <%= f.label :admin %>
     <%= f.check_box :admin %>
   </div>
+  <%end%>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

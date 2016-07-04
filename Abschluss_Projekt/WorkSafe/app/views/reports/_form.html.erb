@@ -32,8 +32,8 @@
     <%= f.text_area :ereignis %>
   </div>
   <div class="field">
-    <%= f.label :kategorie %><br>
-    <%= f.number_field :kategorie %>
+    <%= f.label :category_id, "Kategorie" %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
   </div>
   <div class="actions">
     <%= f.submit %>
