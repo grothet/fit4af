@@ -1,0 +1,108 @@
+Aufgabe 1:
+
+rails g migration AddFieldsToProject end_date:date
+rake db:migrate
+
+in der show.html.erb:
+<p>
+  <strong>Start date:</strong>
+  <%= @project.start_date %>
+</p>
+
+in der index.html.erb
+<th>End date</th>
+<td><%= project.end_date %></td>
+
+in der _form.html.erb
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.text_field :end_date %>
+  </div>
+
+im Projects_Controller
+    def project_params
+      params.require(:project).permit(:title, :description, :start_date, :end_date)
+    end
+anpassen...
+
+Aufgabe 2:
+in der seeds.rb
+Project.create(title: "Apache Webs", description: "Erstellen einer Webseite zur einrichtung eines Webs", start_date: "01.07.2016", end_date: "15.07.2016")
+Project.create(title: "Prüfungsvorbereitung", description: "Vorbereitung auf die Abschlussprüfung", start_date: "01.09.2016", end_date: "26.11.2016")
+
+Aufgabe 3:
+in der stylesheets/projects.scss
+#notice {
+  color: green;
+}
+
+#warung{
+  color: red;
+}
+
+Aufgabe 4:
+in dem Project-Model:
+	validates :title, presence: true
+	validates :description, presence: true
+	validates :start_date, presence: true
+	validate :later_than
+
+  def later_than
+    if(:end_date >= :start_date)
+    	return true
+    else
+    	return false
+    end
+  end
+
+Aufgabe 5:
+	def rest_days(ende)
+		if(ende >= Time.now)
+			ende = ende - Time.now
+		else
+			"Abgelaufen"
+		end
+	end
+
+Aufgabe 6:
+rails g scaffold job title:string description:text project_id:integer
+rake db:migrate
+
+Aufgabe 7:
+im job-Model
+		belongs_to :project
+im projects-Model
+		has_many :jobs
+in der root.rb:
+  resources :projects do
+      resources :jobs
+  end
+
+Aufgebe 8:
+ before_action :set_project
+    
+ def set_project
+ 	@project = Project.find(params[:project_id])
+ end
+
+Aufgabe 9:
+in der create-action
+@job = @project.jobs.new(job_params)
+
+Aufgabe 10:
+in der projects -> index.html.erb
+<td><%= link_to 'Job', project_jobs_path(project.id) %></td>
+einfügen
+
+in der jobs -> index.html.erb
+<td><%= link_to 'Job', project_job_path(@project.id, job.id) %>
+einfügen
+
+in der jobs -> show.html.erb
+<h3>Ein Job für das Projekt <%= @Project.name %></h3>
+
+im jobs Controller einfügen:
+für die index:
+@jobs = @project.jobs
+für die show
+@job = @project.jobs.new
