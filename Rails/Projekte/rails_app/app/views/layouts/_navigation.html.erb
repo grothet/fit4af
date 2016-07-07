@@ -12,7 +12,7 @@
         <ul class="dropdown">
           <li><%= link_to "Vergangene Events", past_events_path%></li>
           <li><%= link_to "Zukünftige Events", events_path(filter:"upcoming")%></li>
-          <li><%= link_to "Kalendar", calendars_show_path%> </li>
+          <li><%= link_to "Kalender", calendar_path(Date.today)%> </li>
         </ul>
       </li>
     </ul>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  get 'calendars/show'
+  
 
   root "events#index"
   get 'signup' => 'users#new'
@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resource :session
   resources :users
-
+  resources :calendars
+  
   resources :events do
     #Hier wird eine neue Action angelegt, die im Controller definiert werden kann
     collection do

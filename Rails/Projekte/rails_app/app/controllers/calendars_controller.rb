@@ -1,5 +1,10 @@
 class CalendarsController < ApplicationController
   def show
-  	@date = Date.today # params[:date] ? Date.parse(params[:date]) : Date.today
+  	@date =params[:id] ? Date.parse(params[:id]) : Date.today
+  	@items = Event.all.group_by(&:start_at)
+  	@events = Hash.new
+  	@items.each do |key, val|
+  		@events[key.day] = val if key.present?
+  	end
   end
 end
