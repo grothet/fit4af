@@ -1,0 +1,18 @@
+Controller erstellen:
+rails g controller static_pages
+
+In den Controller static_pages:
+	def start
+	end
+
+eine neue Datei in der view erstellen:
+	start.html.erb erstellen
+
+
+die route erstellen in der routes.rb:
+	root "static_pages#start"
+
+für ein geändertes Layout:
+	unter layout eine neue seite erstellen --> static.html.erb
+		im controller wird das layout so aufgerufen:
+				layout 'static'

@@ -1,0 +1,33 @@
+
+Mailer anlegen:
+rails g mailer UserMailer
+
+in der create action:
+(Wenn erfolgreich gespeichert wurde)
+        #wilkommensmail
+        UserMailer.welcome_email(@user).deliver
+
+im user_mailer:
+	def welcome_email(user)
+		@user = user
+		mail(to: @user.email, subject: "Wilkommen", body:"Mailinhalt")
+	end
+
+im UserMailer ordner:
+	-> new file: welcome_email.html.erb
+
+im user_mailer.rb:
+default from: "email adresse" #hier die mail adresse angeben
+
+im config -> enviroment -> development.rb configurationen einfügen (Providerabhängige angaben)
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = 
+  {
+    adress: 'smtp.gmail.com', 
+    port: 587, 
+    user_name: 'username', 
+    password: '', 
+    authentication: 'plain', 
+    enable_starttls_auto: true
+  }

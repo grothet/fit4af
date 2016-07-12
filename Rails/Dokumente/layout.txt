@@ -15,3 +15,8 @@ Um mit Foundation zu arbeiten sind folgende Schritte notwendig:
 3. Nun können Anpassungen in der app/assets/css/framework_and_overrides.scss am Layout vorgenommen werden. 
 Die Referenz bildet die Dokumentation von zurb-foundation:
 http://foundation.zurb.com/sites/docs/v/5.5.3/components/visibility.html
+
+
+Layouts können in verschiedenen actions aufgerufen werden:
+	Hierfür in die action, bsp: new, "render layout: 'static'" eintragen 
+		static ist eine seite im Layout ordner

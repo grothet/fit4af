@@ -1,9 +1,8 @@
-Rails.application.routes.draw do
-  
-
-  
+Rails.application.routes.draw do 
 
   root "events#index"
+  #root "static_pages#start"
+  get 'start' => 'static_pages#start'
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
 
