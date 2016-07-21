@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>ID</th>
       <th>Division</th>
       <th>Admin</th>
       <th colspan="3"></th>
@@ -16,11 +17,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.id %></td>
         <td><%= user.division %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Show', user %></td>
+        <% if user.id == session[:user_id]%>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

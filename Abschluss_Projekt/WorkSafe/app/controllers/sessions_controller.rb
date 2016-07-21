@@ -6,18 +6,18 @@ end
 def create
 	if user = User.authenticate(params[:name], params[:password])
 		session[:user_id] = user.id
-		flash[:notice] = "Welcome back, #{user.name}!"
+		flash[:notice] = "Hallo, #{user.name}!"
 		redirect_to session[:intended_url] || root_url
 		session[:intended_url] = nil
 	else
-		flash.now[:alert] = "Invalid email/password combination!"
+		flash.now[:alert] = "Login oder Passwort falsch"
 		render :new
 	end
 end
 
 def destroy
 	session[:user_id] = nil
-	redirect_to root_url, notice: "You're now signed out!"
+	redirect_to root_url, notice: "Sie sind jetz abgemeldet"
 end
 
 end

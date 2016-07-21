@@ -1,0 +1,42 @@
+
+	Unter config -> initializers -> time_formats.rb:
+		wenn der Ordner nicht zu finden ist anlegen!!
+	Time::DATE_FORMATS[:default] = "%d.%m.%Y"
+	 einfügen.
+
+	 Code
+Output
+Description
+t.strftime("%H") => "22"
+# Gives Hour of the time in 24 hour clock format
+t.strftime("%I") => "10"
+# Gives Hour of the time in 12 hour clock format
+t.strftime("%M") => "49"
+# Gives Minutes of the time
+t.strftime("%S") => "27"
+# Gives Seconds of the time
+t.strftime("%Y") => "2013"
+# Gives Year of the time
+t.strftime("%m") => "09"
+# Gives month of the time
+t.strftime("%d") => "12"
+# Gives day of month of the time
+t.strftime("%w") => "4"
+# Gives day of week of the time
+t.strftime("%a") => "Thu"
+# Gives name of week day in short form of the
+t.strftime("%A") => "Thursday" # Gives week day in full form of the time
+t.strftime("%b") => "Sep"
+# Gives month in short form of the time
+t.strftime("%B") => "September" # Gives month in full form of the time
+t.strftime("%y") => "13"
+# Gives year without century of the time
+t.strftime("%Y") => "2013"
+# Gives year without century of the time
+t.strftime("%Z") => "IST"
+# Gives Time Zone of the time
+t.strftime("%p") => "PM"
+# Gives AM / PM of the time
+
+
+Kombinationnen t.strftime("%H:%M:%S") > "22:49:27"

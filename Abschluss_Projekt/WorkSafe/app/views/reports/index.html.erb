@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Meldender</th>
       <th>Wann</th>
       <th>Ort</th>
       <th>Beschr ort</th>
@@ -18,7 +18,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.user_id %></td>
+        <td><%= user_name(report.user_id).name%></td>
         <td><%= report.wann %></td>
         <td><%= report.ort %></td>
         <td><%= report.beschr_ort %></td>
