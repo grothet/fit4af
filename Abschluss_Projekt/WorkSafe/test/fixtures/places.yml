@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Ort_id: 1
+  Kostenstelle: MyString
+  Bezeichnung: MyText
+
+two:
+  Ort_id: 1
+  Kostenstelle: MyString
+  Bezeichnung: MyText

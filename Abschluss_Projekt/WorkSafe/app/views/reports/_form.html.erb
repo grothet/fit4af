@@ -13,30 +13,30 @@
 
 
   <div class="field">
-  
-    <%= f.label :user_id %><br>
-    <%= f.select :user_id, Report::USER_OPTIONS, prompt: "Bitte wählen" %><br>
-    <%= session[:user_id]%>
+    <hr>
+    <h6> Meldender: </h6>  
+    <%= f.radio_button :user_id, session[:user_id], :checked => true %> <%= User.find_by(id: session[:user_id]).name  %> <br>
+    <%= f.radio_button :user_id, User.find_by(name: "Anonym").id %> Anonym
   </div>
 
   <div class="field">
-    <%= f.label :wann %><br>
+    <h6> Zeitpunkt des Ereignisses? </h6>  
     <%= f.datetime_select :wann %>
   </div>
   <div class="field">
-    <%= f.label :ort %><br>
-    <%= f.text_area :ort %>
+    <h6> Ort des Ereignisses:</h6>
+    <%= f.collection_select :place_id, Place.all, :id, :bezeichnung, :prompt => "Bitte Wählen"%>
   </div>
   <div class="field">
-    <%= f.label :beschr_ort %><br>
+    <h6> Beschreibung des Ortes:</h6>
     <%= f.text_area :beschr_ort %>
   </div>
   <div class="field">
-    <%= f.label :ereignis %><br>
+    <h6> Beschreibung des Ereignisses</h6>
     <%= f.text_area :ereignis %>
   </div>
   <div class="field">
-    <%= f.label :category_id, "Kategorie" %><br>
+    <h6> Unfallkategorie: </h6>
     <%= f.collection_select :category_id, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
   </div>
   <div class="actions">

@@ -12,7 +12,7 @@
 
 <p>
   <strong>Ort:</strong>
-  <%= @report.ort %>
+  <%= @report.place.bezeichnung if @report.place_id.present? %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong>Kategorie:</strong>
-  <%= @report.category_id %>
+  <%= @report.category.titel if @report.category_id.present?  %>
 </p>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

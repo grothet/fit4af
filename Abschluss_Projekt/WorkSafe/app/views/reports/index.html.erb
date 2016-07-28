@@ -20,10 +20,10 @@
       <tr>
         <td><%= user_name(report.user_id).name%></td>
         <td><%= report.wann %></td>
-        <td><%= report.ort %></td>
+        <td><%= report.place.bezeichnung if report.place_id.present? %></td>
         <td><%= report.beschr_ort %></td>
         <td><%= report.ereignis %></td>
-        <td><%= report.category_id.titel if report.category_id.present? %></td>
+        <td><%= report.category.titel if report.category_id.present? %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>

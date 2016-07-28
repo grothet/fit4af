@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  
-  resources :categories
+
   root "reports#index"
 
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   
-  resources :reports
-  resources :users
+  resources :reports 
   resources :categories
-  
+  resources :users
+  resources :places
+
   resource :session
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
