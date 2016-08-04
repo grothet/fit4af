@@ -7,6 +7,8 @@
           <% if current_user %>
             <li><%= link_to current_user.name, user_path(current_user.id) %></li>
             <li><%= link_to "Abmelden" , session_path, method: :delete %></li>
+
+            <li><%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%></li>
           <%else%>
             <li><%=link_to "Anmelden", signin_path %></li>
             <li><%=link_to "Einschreiben", signup_path %></li>
