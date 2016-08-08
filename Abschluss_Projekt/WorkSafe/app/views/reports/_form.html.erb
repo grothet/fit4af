@@ -1,3 +1,13 @@
+
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/locales/foundation-datepicker.de.js"></script>
+
+<script>
+$('.fdatepicker').fdatepicker({
+  language: 'de'
+});
+</script>
+
 <%= form_for(@report) do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
@@ -21,8 +31,24 @@
 
   <div class="field">
     <h6> Zeitpunkt des Ereignisses? </h6>  
-    <%= f.datetime_select :wann %>
-  </div>
+   <%= f.text_field :wann , id: "dpt"%>
+
+
+<script>
+$(function(){
+  $('#dpt').fdatepicker({
+    format: 'dd-mm-yyyy hh:ii',
+    disableDblClickSelection: true,
+    language: 'de',
+    pickTime: true
+  });
+});
+</script>
+</div>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+
   <div class="field">
     <h6> Ort des Ereignisses:</h6>
     <%= f.collection_select :place_id, Place.all, :id, :bezeichnung, :prompt => "Bitte Wählen"%>
