@@ -7,7 +7,7 @@
 
 <p>
   <strong>Division:</strong>
-  <%= @user.division %>
+  <%= @user.division.bezeichnung if @user.division_id.present? %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @user.admin %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user) %> | 
+<%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%>

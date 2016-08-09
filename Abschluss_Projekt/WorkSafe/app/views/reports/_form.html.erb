@@ -32,22 +32,18 @@ $('.fdatepicker').fdatepicker({
   <div class="field">
     <h6> Zeitpunkt des Ereignisses? </h6>  
    <%= f.text_field :wann , id: "dpt"%>
-
-
-<script>
-$(function(){
-  $('#dpt').fdatepicker({
-    format: 'dd-mm-yyyy hh:ii',
-    disableDblClickSelection: true,
-    language: 'de',
-    pickTime: true
-  });
-});
-</script>
-</div>
-
-<link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
+    <script>
+    $(function(){
+      $('#dpt').fdatepicker({
+        format: 'dd-mm-yyyy hh:ii',
+        disableDblClickSelection: true,
+        language: 'de',
+        pickTime: true
+      });
+    });
+    </script>
+  </div>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
   <div class="field">
     <h6> Ort des Ereignisses:</h6>

@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :require_signin, except: [:index]
-  before_action :require_admin, only: [:destroy, :edit, :update]
+  #before_action :require_admin, only: [:destroy, :edit, :update]
 
   # GET /reports
   # GET /reports.json

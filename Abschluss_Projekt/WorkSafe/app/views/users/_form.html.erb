@@ -24,8 +24,7 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :division %><br>
-    <%= f.text_field :division %>
+    <%= f.collection_select :division_id, Division.all, :id, :bezeichnung , :prompt => "Bitte Wählen" %><br>
   </div>
 
   <% if current_user_admin? %>

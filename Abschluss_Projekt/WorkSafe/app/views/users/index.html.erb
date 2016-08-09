@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>Benutzer</h1>
 
 <table>
   <thead>
@@ -18,13 +18,12 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.id %></td>
-        <td><%= user.division %></td>
+        <td><%= user.division.bezeichnung if user.division_id.present?%></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Show', user %></td>
-        <% if user.id == session[:user_id]%>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
+    
       </tr>
     <% end %>
   </tbody>

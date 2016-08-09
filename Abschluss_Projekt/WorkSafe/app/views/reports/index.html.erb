@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reports</h1>
+<h1>Eingetragene Ereignisse</h1>
 
 <table>
   <thead>
@@ -24,9 +24,13 @@
         <td><%= truncate(report.beschr_ort, length: 20, separator: " ") %></td>
         <td><%= truncate(report.ereignis, length: 20, separator: " ") %></td>
         <td><%= report.category.titel if report.category_id.present? %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', report %></td>  
+                    
+        <% if report.user_id == session[:user_id] || current_user_admin?%>
+          <td><%= link_to 'Edit', edit_report_path(report) %></td>
+          <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%> 
+
       </tr>
     <% end %>
   </tbody>

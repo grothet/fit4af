@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728173018) do
+ActiveRecord::Schema.define(version: 20160809165145) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "titel"
     t.text     "bezeichnung"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string   "bezeichnung"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160728173018) do
     t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "division_id"
   end
 
 end
