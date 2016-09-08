@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :divisions
   root "reports#index"
 
-  #get 'signup' => 'users#new'
+  get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   get 'admin_pages/index'
   
