@@ -61,6 +61,10 @@ $('.fdatepicker').fdatepicker({
     <h6> Unfallkategorie: </h6>
     <%= f.collection_select :category_id, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
   </div>
+  <div class="field">
+    <h6> Bilder: </h6>
+    <%= f.file_field :avatars, multiple: true%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
