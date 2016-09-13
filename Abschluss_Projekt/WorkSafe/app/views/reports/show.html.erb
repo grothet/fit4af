@@ -1,41 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= user_name(@report.user_id).name %>
-</p>
 
-<p>
-  <strong>Wann:</strong>
-  <%= @report.wann %>
-</p>
-
-<p>
-  <strong>Ort:</strong>
-  <%= @report.place.bezeichnung if @report.place_id.present? %>
-</p>
-
-<p>
-  <strong>Beschr ort:</strong>
-  <%= @report.beschr_ort %>
-</p>
-
-<p>
-  <strong>Ereignis:</strong>
-  <%= @report.ereignis %>
-</p>
-
-<p>
-  <strong>Kategorie:</strong>
-  <%= @report.category.titel if @report.category_id.present?  %>
-</p>
-
-<p>
-  <strong>Bilder:</strong>
-  <% @report.avatars.each do |pic| %>
-    <br><%= image_tag pic%> 
-  <%end%>
-</p>
-
+<div class="box">
+    <p>
+      <strong>User:</strong>
+      <%= user_name(@report.user_id).name %>
+    </p>
+    <p>
+      <strong>Wann:</strong>
+      <%= @report.wann %>
+    </p>
+    <p>
+      <strong>Ort:</strong>
+      <%= @report.place.bezeichnung if @report.place_id.present? %>
+    </p>
+    <p>
+      <strong>Beschr ort:</strong>
+      <%= @report.beschr_ort %>
+    </p>
+    <p>
+      <strong>Ereignis:</strong>
+      <%= @report.ereignis %>
+    </p>
+    <p>
+      <strong>Kategorie:</strong>
+      <%= @report.category.titel if @report.category_id.present?  %>
+    </p>
+</div>
+<% if @report.avatars.present? %>
+<div class="pic_box">
+  <ul class="example-orbit" data-orbit>
+    <% @report.avatars.each do |pic| %>
+      <li class="active">
+        <%= image_tag pic%>
+      </li>
+    <%end%>
+  </ul>
+</div> 
+<%end%>  
+<div class="footer">
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>
+</div>
