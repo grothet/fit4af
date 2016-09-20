@@ -12,7 +12,7 @@
             <li><%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%></li>
           <%else%>
             <li><%=link_to "Anmelden", signin_path %></li>
-            <li><%=link_to "Eintragen", signup_path %></li>
+            <!--<li><%=link_to "Eintragen", signup_path %></li> -->
           <%end%>
         </ul>
       </li>
