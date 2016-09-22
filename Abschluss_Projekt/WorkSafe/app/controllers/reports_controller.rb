@@ -14,6 +14,35 @@ class ReportsController < ApplicationController
   def show
   end
 
+  def search #Suchoptionen
+  end
+
+  def search_results #Suchergebnisse
+    #Datumseinschränkung
+    #Die Zeitangaben werden als String übertragen und müssen in ein Datum gewandelt werden
+    startDate = "#{params[:dp2]}".to_time
+    endDate = "#{params[:dp3]}".to_time
+    #Suche in Bezeichnung
+    keywords = "%" + params[:search_keywords] + "%"
+
+    #Suche nach Kategorien
+    if params[:search_category].empty?
+      category = "%"
+    else   
+      category = params[:search_category]
+    end
+
+    #Suche nach Orten
+    if params[:search_place].empty?
+      place = "%"
+    else   
+      place = params[:search_place]
+    end
+    #Suchergebnisse
+    @search_results = Report.where('ereignis LIKE ? AND category_id LIKE ? AND place_id LIKE ? AND wann >= ? AND wann <= ?',keywords, category, place, startDate, endDate)
+    #@search_results = Report.where('wann >= ?', startDate)
+  end
+
   # GET /reports/new
   def new
     @report = Report.new

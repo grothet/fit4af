@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   get 'admin_pages/index'
+  get 'search' => 'reports#search', as: 'search'
+  get 'search_results' => 'reports#search_results', as: 'search_results'
   
   resources :reports 
   resources :categories

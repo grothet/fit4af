@@ -1,0 +1,34 @@
+
+<h3> Suchoptionen </h3>
+
+
+<%= form_tag search_results_path, method: 'get' do |f|%>
+
+
+<%= text_field_tag :dp2, "#{(Date.today - 100.day).strftime('%d.%m.%Y')}"%>
+<script>
+$(function(){
+  $('#dp2').fdatepicker({
+		closeButton: true,
+		format: 'dd.mm.yyyy'
+	});
+});
+</script>
+
+<%= text_field_tag :dp3, "#{Date.today.strftime('%d.%m.%Y')}"%>
+<script>
+$(function(){
+  $('#dp3').fdatepicker({
+		closeButton: true,
+		format: 'dd.mm.yyyy'
+	});
+});
+</script>
+Volltextsuche
+<%= text_field_tag :search_keywords %>
+Kategorie
+<%= collection_select nil, :search_category, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
+Ort
+<%=collection_select nil,:search_place, Place.all, :id, :bezeichnung, :prompt => "Bitte Wählen"%>
+<%= submit_tag "Search" %>
+<%end%>
