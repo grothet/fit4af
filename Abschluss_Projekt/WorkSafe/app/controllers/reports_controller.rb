@@ -20,10 +20,10 @@ class ReportsController < ApplicationController
   def search_results #Suchergebnisse
     #Datumseinschränkung
     #Die Zeitangaben werden als String übertragen und müssen in ein Datum gewandelt werden
+
     startDate = Date.parse(params[:dp2])
     endDate = Date.parse(params[:dp3])
-    #startDate = "#{params[:dp2]}".to_time
-    #endDate = "#{params[:dp3]}".to_time
+
     #Suche in Bezeichnung
     keywords = "%" + params[:search_keywords] + "%"
 
@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to @report, notice: 'Ereignis wurde erstellt.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -75,7 +75,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to @report, notice: 'Änderungen gespeichert.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
@@ -89,7 +89,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to reports_url, notice: 'Ereignis wurde gelöscht.' }
       format.json { head :no_content }
     end
   end
