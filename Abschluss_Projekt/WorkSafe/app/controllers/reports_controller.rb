@@ -20,8 +20,10 @@ class ReportsController < ApplicationController
   def search_results #Suchergebnisse
     #Datumseinschränkung
     #Die Zeitangaben werden als String übertragen und müssen in ein Datum gewandelt werden
-    startDate = "#{params[:dp2]}".to_time
-    endDate = "#{params[:dp3]}".to_time
+    startDate = Date.parse(params[:dp2])
+    endDate = Date.parse(params[:dp3])
+    #startDate = "#{params[:dp2]}".to_time
+    #endDate = "#{params[:dp3]}".to_time
     #Suche in Bezeichnung
     keywords = "%" + params[:search_keywords] + "%"
 
