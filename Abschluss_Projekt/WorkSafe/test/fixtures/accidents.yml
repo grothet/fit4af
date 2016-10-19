@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wann: 2016-10-13 17:52:31
+  wer: MyText
+  was: MyText
+  arzt: false
+  ausfall: 1
+
+two:
+  wann: 2016-10-13 17:52:31
+  wer: MyText
+  was: MyText
+  arzt: false
+  ausfall: 1

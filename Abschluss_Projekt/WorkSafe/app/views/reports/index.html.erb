@@ -1,8 +1,4 @@
 
 <h1>Eingetragene Ereignisse</h1>
-<%= link_to "Suchoptionen", search_path %>
-
 <%= render "listing_all", object: @reports %>
 
-<%= link_to 'New Report', new_report_path %> |
-<%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%>

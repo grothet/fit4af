@@ -1,4 +1,13 @@
 // import the CSS framework
+
+$topbar-bg-color: #0431B4;
+$topbar-bg: $topbar-bg-color;
+$topbar-link-bg-hover: #0404B4;
+$topbar-dropdown-bg: #0404B4;
+$topbar-dropdown-link-bg: #08088A;
+$topbar-dropdown-link-bg-hover: #0404B4;
+
+
 @import "foundation";
 @import "foundation/components/offcanvas";
 

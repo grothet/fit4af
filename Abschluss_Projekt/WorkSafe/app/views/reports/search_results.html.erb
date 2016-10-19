@@ -1,12 +1,7 @@
 <h1>Gefundene Ereignisse</h1>
-<%= link_to "Suchoptionen", search_path %>
 
 <% if @search_results.empty? %>
   <h6>Keie Ergebnisse gefunden </h6>
 <%else%>
   <%= render "listing_all", object: @search_results %>
 <%end%>
-
-
-<%= link_to 'New Report', new_report_path %> |
-<%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%>

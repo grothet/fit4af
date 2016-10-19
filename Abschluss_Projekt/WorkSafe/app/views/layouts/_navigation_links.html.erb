@@ -7,8 +7,6 @@
           <% if current_user %>
             <li><%= link_to current_user.name, user_path(current_user.id) %></li>
             <li><%= link_to "Abmelden" , session_path, method: :delete %></li>
-            <li><%= link_to "Ereignisse" , reports_path %></li>
-
             <li><%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%></li>
           <%else%>
             <li><%=link_to "Anmelden", signin_path %></li>
@@ -16,5 +14,27 @@
           <%end%>
         </ul>
       </li>
+      <li class="has-dropdown">
+        <a href="#">Ereignisse</a>
+        <ul class="dropdown">
+            <li><%= link_to "Anzeigen" , reports_path %></li>  
+            <li><%= link_to 'Erstellen', new_report_path %></li>  
+            <li><%= link_to "Suchoptionen", search_path %></li>   
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Unfälle</a>
+        <ul class="dropdown">
+            <li><%= link_to "Anzeigen" , accidents_path %></li> 
+            <li><%= link_to 'Erstellen', new_accident_path %></li>           
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Aufgaben</a>
+        <ul class="dropdown">
+            <li><%= link_to "Anzeigen" , tasks_path %></li>           
+        </ul>
+      </li>
+
     </ul>
   </div>

@@ -1,0 +1,28 @@
+<br>
+<p>
+  <strong>Wann:</strong>
+  <%= @accident.wann %>
+</p>
+
+<p>
+  <strong>Wer:</strong>
+  <%= @accident.wer %>
+</p>
+
+<p>
+  <strong>Was:</strong>
+  <%= @accident.was %>
+</p>
+
+<p>
+  <strong>Arzt:</strong>
+  <%= @accident.arzt %>
+</p>
+
+<p>
+  <strong>Ausfall:</strong>
+  <%= @accident.ausfall %>
+</p>
+
+<%= link_to 'Aufgabe erstellen', new_task_path(@accident.id, accident: true)%>
+

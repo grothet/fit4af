@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
+  
+  resources :accidents
   resources :divisions
   root "reports#index"
 
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
   get 'admin_pages/index'
+  get 'finish' => 'tasks#finish', as: 'task_finish'
   get 'search' => 'reports#search', as: 'search'
   get 'search_results' => 'reports#search_results', as: 'search_results'
   
-  resources :reports 
+  resources :reports
+  resources :tasks
   resources :categories
   resources :users
   resources :places

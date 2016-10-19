@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
 		user = User.find_by(name: name)
 		user && user.authenticate(password)
 	end
+
+	scope :verantwortlich, -> {where(verantwortlich: true).order(:name)}
+	scope :sifa, -> {where(sifa: true).order(:name)}
 end

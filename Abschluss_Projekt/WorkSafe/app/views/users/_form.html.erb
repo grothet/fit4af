@@ -28,12 +28,20 @@
   </div>
 
   <% if current_user_admin? %>
-  <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
-  </div>
+    <div class="field">
+      <%= f.label :admin %>
+      <%= f.check_box :admin %>
+    </div>
+    <div class="field">
+      <%= f.label :Sicherheitsfachkraft %>
+      <%= f.check_box :sifa %>
+    </div>
+    <div class="field">
+      <%= f.label :verantwortlich %>
+      <%= f.check_box :verantwortlich %>
+    </div>
   <%end%>
-  
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,0 +1,49 @@
+<br>
+<p>
+  <strong>Verantwortlicher:</strong>
+  <%= user_name(@task.user_id).name %>
+</p>
+
+<p>
+  <strong>Erstellt:</strong>
+  <%= @task.start_date %>
+</p>
+
+<p>
+  <strong>Beendet:</strong>
+  <%= @task.end_date %>
+</p>
+
+<%if @task.report_id.present?%>
+  <p>
+    <strong>Ereignis ID:</strong>
+    <%= @task.report_id %>
+  </p>
+<%end%>
+<%if @task.accident_id.present?%>
+  <p>
+    <strong>Unfall ID:</strong>
+    <%= @task.accident_id %>
+  </p>
+<%end%>
+
+<p>
+  <strong>Aufgabenbeschreiung:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>SAP Nummer:</strong>
+  <%= @task.sap_nr %>
+</p>
+
+<p>
+  <strong>Modi Nummer:</strong>
+  <%= @task.modi_nr %>
+</p>
+
+<% if @task.user_id == session[:user_id] || current_user_admin?%>
+  <%= link_to 'Abschließen', task_finish_path(@task.id)%>
+<%end%>
+
+

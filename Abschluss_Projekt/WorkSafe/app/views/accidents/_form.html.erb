@@ -1,0 +1,57 @@
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/locales/foundation-datepicker.de.js"></script>
+
+<script>
+$('.fdatepicker').fdatepicker({
+  language: 'de'
+});
+</script>
+
+<%= form_for(@accident) do |f| %>
+  <% if @accident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accident.errors.count, "error") %> prohibited this accident from being saved:</h2>
+
+      <ul>
+      <% @accident.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h6> Zeitpunkt des Ereignisses? </h6>  
+   <%= f.text_field :wann , id: "dpt"%>
+    <script>
+    $(function(){
+      $('#dpt').fdatepicker({
+        format: 'dd-mm-yyyy hh:ii',
+        disableDblClickSelection: true,
+        language: 'de',
+        pickTime: true
+      });
+    });
+    </script>
+  </div>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  <div class="field">
+    <%= f.label :wer %><br>
+    <%= f.text_area :wer %>
+  </div>
+  <div class="field">
+    <%= f.label :was %><br>
+    <%= f.text_area :was %>
+  </div>
+  <div class="field">
+    <%= f.label :arzt %><br>
+    <%= f.check_box :arzt %>
+  </div>
+  <div class="field">
+    <%= f.label :ausfall %><br>
+    <%= f.number_field :ausfall %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

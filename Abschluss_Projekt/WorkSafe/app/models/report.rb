@@ -4,6 +4,7 @@ class Report < ActiveRecord::Base
 	serialize :avatars
 	belongs_to :category
 	belongs_to :place
+	belongs_to :task
 
 
 end

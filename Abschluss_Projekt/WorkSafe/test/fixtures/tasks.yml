@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  start_date: 2016-09-30
+  end_date: 2016-09-30
+  report_id: 1
+  description: MyText
+  sap_nr: 1
+  modi_nr: 1
+
+two:
+  user_id: 1
+  start_date: 2016-09-30
+  end_date: 2016-09-30
+  report_id: 1
+  description: MyText
+  sap_nr: 1
+  modi_nr: 1

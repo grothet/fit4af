@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908154759) do
+ActiveRecord::Schema.define(version: 20161013172708) do
+
+  create_table "accidents", force: :cascade do |t|
+    t.datetime "wann"
+    t.text     "wer"
+    t.text     "was"
+    t.boolean  "arzt"
+    t.integer  "ausfall"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "titel"
@@ -47,6 +57,20 @@ ActiveRecord::Schema.define(version: 20160908154759) do
     t.text     "avatars"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "description"
+    t.integer  "sap_nr"
+    t.integer  "modi_nr"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+    t.integer  "report_id"
+    t.integer  "accident_id"
+    t.boolean  "abgeschlossen"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "password_digest"
@@ -55,6 +79,8 @@ ActiveRecord::Schema.define(version: 20160908154759) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "division_id"
+    t.boolean  "sifa"
+    t.boolean  "verantwortlich"
   end
 
 end

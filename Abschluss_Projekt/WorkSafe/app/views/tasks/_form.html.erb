@@ -1,0 +1,57 @@
+<%= form_for (@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <h6> Verantwortlicher:</h6>
+    <%= f.collection_select :user_id, User.verantwortlich, :id, :name, :prompt => "Bitte Wählen"%>
+  </div>
+  <div class="field">
+  <h6> Start Zeit:</h6>
+  <%= f.text_field :start_date, id: 'dp4'%>
+    <script>
+    $(function(){
+      $('#dp4').fdatepicker({
+        closeButton: true,
+        format: 'dd.mm.yyyy'
+      });
+    });
+    </script>  
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet"> 
+  </div>
+  <div class="field">
+    <h6> Aufgabenbeschreibung:</h6>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+   <h6> SAP Nummer:</h6>
+    <%= f.number_field :sap_nr %>
+  </div>
+  <div class="field">
+   <h6> Modi Nummer:</h6>
+    <%= f.number_field :modi_nr %>
+  </div>
+
+  <%if params[:report] %>
+    <div class="field">
+      <%= f.hidden_field :report_id , :value => params[:format]%>
+    </div>
+  <%end%>
+  <%if params[:accident] %>
+    <div class="field">
+      <%= f.hidden_field :accident_id , :value => params[:format]%>
+    </div>
+  <%end%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
