@@ -1,7 +1,7 @@
 <h3> Suchoptionen </h3>
 
 
-<%= form_tag search_results_path, method: 'get' do |f|%>
+<%= form_tag search_results_accident_path, method: 'get' do |f|%>
 
 
 <%= text_field_tag :dp2, "#{(Date.today - 100.day).strftime('%d.%m.%Y')}"%>
@@ -27,9 +27,6 @@ $(function(){
  <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 Volltextsuche
 <%= text_field_tag :search_keywords %>
-Kategorie
-<%= collection_select nil, :search_category, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
-Ort
-<%=collection_select nil,:search_place, Place.all, :id, :bezeichnung, :prompt => "Bitte Wählen"%>
+
 <%= submit_tag "Search" %>
 <%end%>

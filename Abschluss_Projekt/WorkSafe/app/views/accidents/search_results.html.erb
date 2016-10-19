@@ -1,0 +1,7 @@
+<h1>Gefundene Ereignisse</h1>
+
+<% if @search_results.empty? %>
+  <h6>Keie Ergebnisse gefunden </h6>
+<%else%>
+  <%= render "listing_all", object: @search_results %>
+<%end%>

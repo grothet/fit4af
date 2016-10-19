@@ -21,7 +21,7 @@
 
 <p>
   <strong>Ausfall:</strong>
-  <%= @accident.ausfall %>
+  <%= pluralize(@accident.ausfall, "Tag", "Tage") %>
 </p>
 
 <%= link_to 'Aufgabe erstellen', new_task_path(@accident.id, accident: true)%>

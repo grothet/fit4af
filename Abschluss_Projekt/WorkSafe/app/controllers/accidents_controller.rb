@@ -17,6 +17,23 @@ class AccidentsController < ApplicationController
     @accident = Accident.new
   end
 
+  def search #Suchoptionen
+  end
+
+  def search_results #Suchergebnisse
+    #Datumseinschränkung
+    #Die Zeitangaben werden als String übertragen und müssen in ein Datum gewandelt werden
+
+    startDate = Date.parse(params[:dp2])
+    endDate = Date.parse(params[:dp3])
+
+    #Suche in Bezeichnung
+    keywords = "%" + params[:search_keywords] + "%"
+
+    #Suchergebnisse
+    @search_results = Accident.where('was LIKE ?  AND wann >= ? AND wann <= ?',keywords, startDate, endDate)
+    #@search_results = Report.where('wann >= ?', startDate)
+  end
   # GET /accidents/1/edit
   def edit
   end

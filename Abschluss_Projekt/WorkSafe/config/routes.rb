@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'finish' => 'tasks#finish', as: 'task_finish'
   get 'search' => 'reports#search', as: 'search'
   get 'search_results' => 'reports#search_results', as: 'search_results'
+  get 'search_accident' => 'accidents#search', as: 'search_accident'
+  get 'search_results_accident' => 'accidents#search_results', as: 'search_results_accident'
   
   resources :reports
   resources :tasks
