@@ -2,7 +2,9 @@
   <thead>
     <tr>
       <th>Wann</th>
-      <th>Wer</th>
+      <%if current_user_sifa?%>
+        <th>Wer</th>
+      <%end%>
       <th>Was</th>
       <th>Arzt</th>
       <th>Ausfall</th>
@@ -14,8 +16,10 @@
     <% object.each do |accident| %>
       <tr>
         <td><%= accident.wann %></td>
-        <td><%= accident.wer %></td>
-        <td><%= accident.was %></td>
+        <%if current_user_sifa?%>
+          <td><%= accident.wer %></td>
+        <%end%>
+          <td><%= accident.was %></td>
         <% if accident.arzt == true %>
           <td>Ja</td>
         <%else%>

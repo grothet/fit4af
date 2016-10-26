@@ -56,7 +56,7 @@ class DivisionsController < ApplicationController
   def destroy
     @division.destroy
     respond_to do |format|
-      format.html { redirect_to divisions_url, notice: 'Abteilung wurde gelöscht' }
+      format.html { redirect_to divisions_url, notice: 'Abteilung erfolgreich gelöscht' }
       format.json { head :no_content }
     end
   end

@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     @user.destroy
     #session[:user_id] = nil
     respond_to do |format|
-      format.html { redirect_to admin_pages_index_path, notice: 'User wurde gelöscht.' }
+      format.html { redirect_to admin_pages_index_path, notice: 'User erfolgreich gelöscht.' }
       format.json { head :no_content }
     end
   end

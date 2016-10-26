@@ -45,7 +45,7 @@ class AccidentsController < ApplicationController
 
     respond_to do |format|
       if @accident.save
-        format.html { redirect_to @accident, notice: 'Accident was successfully created.' }
+        format.html { redirect_to @accident, notice: 'Unfall erstellt.' }
         format.json { render :show, status: :created, location: @accident }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class AccidentsController < ApplicationController
   def update
     respond_to do |format|
       if @accident.update(accident_params)
-        format.html { redirect_to @accident, notice: 'Accident was successfully updated.' }
+        format.html { redirect_to @accident, notice: 'Änderungen gespeichert.' }
         format.json { render :show, status: :ok, location: @accident }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class AccidentsController < ApplicationController
   def destroy
     @accident.destroy
     respond_to do |format|
-      format.html { redirect_to accidents_url, notice: 'Accident was successfully destroyed.' }
+      format.html { redirect_to accidents_url, notice: 'Unfall erfolgreich gelöscht.' }
       format.json { head :no_content }
     end
   end

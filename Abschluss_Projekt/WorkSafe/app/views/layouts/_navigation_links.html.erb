@@ -14,28 +14,30 @@
           <%end%>
         </ul>
       </li>
-      <li class="has-dropdown">
-        <a href="#">Ereignisse</a>
-        <ul class="dropdown">
-            <li><%= link_to "Anzeigen" , reports_path %></li>  
-            <li><%= link_to 'Erstellen', new_report_path %></li>  
-            <li><%= link_to "Suchoptionen", search_path %></li>   
-        </ul>
-      </li>
-      <li class="has-dropdown">
-        <a href="#">Unfälle</a>
-        <ul class="dropdown">
-            <li><%= link_to "Anzeigen" , accidents_path %></li> 
-            <li><%= link_to 'Erstellen', new_accident_path %></li> 
-            <li><%= link_to "Suchoptionen", search_accident_path %></li>            
-        </ul>
-      </li>
-      <li class="has-dropdown">
-        <a href="#">Aufgaben</a>
-        <ul class="dropdown">
-            <li><%= link_to "Anzeigen" , tasks_path %></li>           
-        </ul>
-      </li>
-
+      <%if session[:user_id].present?%>
+        <li class="has-dropdown">
+          <a href="#">Ereignisse</a>
+          <ul class="dropdown">
+              <li><%= link_to "Anzeigen" , reports_path %></li>  
+              <li><%= link_to 'Erstellen', new_report_path %></li>  
+              <li><%= link_to "Suchoptionen", search_path %></li>   
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Unfälle</a>
+          <ul class="dropdown">
+              <li><%= link_to "Anzeigen" , accidents_path %></li> 
+              <li><%= link_to 'Erstellen', new_accident_path if current_user_sifa?%></li> 
+              <li><%= link_to "Suchoptionen", search_accident_path %></li>            
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#">Aufgaben</a>
+          <ul class="dropdown">
+              <li><%= link_to "Anzeigen" , tasks_path %></li>
+              <li><%= link_to "Meine Aufgaben" , tasks_path(current_user) if current_user_verantwortlich?%></li>        
+          </ul>
+        </li>
+      <%end%>
     </ul>
   </div>

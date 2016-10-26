@@ -56,7 +56,7 @@ class PlacesController < ApplicationController
   def destroy
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Ort wurde gelöscht' }
+      format.html { redirect_to places_url, notice: 'Ort erfolgreich gelöscht' }
       format.json { head :no_content }
     end
   end

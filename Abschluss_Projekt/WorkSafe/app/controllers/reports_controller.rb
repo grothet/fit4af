@@ -89,7 +89,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Ereignis wurde gelöscht.' }
+      format.html { redirect_to reports_url, notice: 'Ereignis erfolgreich gelöscht.' }
       format.json { head :no_content }
     end
   end
