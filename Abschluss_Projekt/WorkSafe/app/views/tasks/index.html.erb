@@ -24,8 +24,10 @@
               <td><%= task.sap_nr %></td>
               <td><%= task.modi_nr %></td>
               <td><%= link_to 'Anzeigen', task %></td>
+              <% if current_user_sifa? %>
               <td><%= link_to 'Ändern', edit_task_path(task) %></td>
               <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%end%>
             </tr>
           <%end%>
         <%end%>
@@ -57,8 +59,10 @@
               <td><%= task.sap_nr %></td>
               <td><%= task.modi_nr %></td>
               <td><%= link_to 'Anzeigen', task %></td>
-              <td><%= link_to 'Ändern', edit_task_path(task) %></td>
-              <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user_sifa? %>
+                <td><%= link_to 'Ändern', edit_task_path(task) %></td>
+                <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%end%>
             </tr>
           <%end%>
         <%end%>

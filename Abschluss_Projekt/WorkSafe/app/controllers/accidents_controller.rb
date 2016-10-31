@@ -1,5 +1,6 @@
 class AccidentsController < ApplicationController
   before_action :set_accident, only: [:show, :edit, :update, :destroy]
+  before_action :require_sifa, only: [:new, :edit, :update, :destroy]
 
   # GET /accidents
   # GET /accidents.json

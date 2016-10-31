@@ -1,4 +1,7 @@
 class Category < ActiveRecord::Base
 	has_many :reports
-	#has_many :places, through => :reports
+	
+	#validations:
+	validates :titel, presence: true
+	validates :bezeichnung, presence: true
 end

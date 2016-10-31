@@ -27,8 +27,10 @@
         <%end%>
         <td><%=  pluralize(accident.ausfall, "Tag", "Tage") %></td>
         <td><%= link_to 'Anzeigen', accident %></td>
-        <td><%= link_to 'Ändern', edit_accident_path(accident) %></td>
-        <td><%= link_to 'Löschen', accident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user_sifa? %>
+          <td><%= link_to 'Ändern', edit_accident_path(accident) %></td>
+          <td><%= link_to 'Löschen', accident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

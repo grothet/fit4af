@@ -26,10 +26,22 @@ class ApplicationController < ActionController::Base
 	end
 	helper_method :current_user_admin?
 #----------------------------------------------------
+	def require_sifa
+		unless current_user_sifa?
+		redirect_to (:back), alert: "Keine Berechtigung als Sicherheitsfachkraft gefunden!"
+		end
+	end
+#----------------------------------------------------
 	def current_user_sifa?
 		current_user && current_user.sifa?
 	end
 	helper_method :current_user_sifa?
+#----------------------------------------------------
+	def require_verantwortlich
+		unless current_user_verantwortlich?
+		redirect_to (:back), alert: "Keine Berechtigung als Verantwortlicher gefunden!"
+		end
+	end
 #----------------------------------------------------
 def current_user_verantwortlich?
 		current_user && current_user.verantwortlich?

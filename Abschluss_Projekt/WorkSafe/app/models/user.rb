@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
 	has_secure_password
 	belongs_to :division
 
+	#validations:
 	validates :name, presence: true
+	validates :division_id, presence: true
   
 
 	def self.authenticate(name, password)
