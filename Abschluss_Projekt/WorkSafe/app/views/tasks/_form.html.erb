@@ -41,14 +41,17 @@
     <%= f.number_field :modi_nr %>
   </div>
 
-  <%if params[:report] %>
+<!--Abfrage für welchen Fall der Task angelegt werden soll... Unfall oder Ereignis 
+    die entsprechende Id wird eingetragen die ander bleibt NIL-->
+
+  <%if session[:report] %>
     <div class="field">
-      <%= f.hidden_field :report_id , :value => params[:format]%>
+      <%= f.hidden_field :report_id , :value => session[:ar_id]%>
     </div>
   <%end%>
-  <%if params[:accident] %>
+  <%if session[:accident] %>
     <div class="field">
-      <%= f.hidden_field :accident_id , :value => params[:format]%>
+      <%= f.hidden_field :accident_id , :value => session[:ar_id]%>
     </div>
   <%end%>
   <div class="actions">

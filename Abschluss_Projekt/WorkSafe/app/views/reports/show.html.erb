@@ -44,5 +44,11 @@
 </div> 
 <%end%>  
 <div class="footer">
-<%= link_to 'Aufgabe erstellen', new_task_path(@report.id, report: true) if current_user_sifa?%>
+<% if current_user_sifa?%>
+<!-- Übergabeparameter werden in der Session gespeichert-->
+<% session[:ar_id] = @report.id %>
+<% session[:accident] = false %>
+<% session[:report] = true %>
+<%= link_to 'Aufgabe erstellen', new_task_path%>
+<%end%>
 </div>

@@ -23,6 +23,10 @@
   <strong>Ausfall:</strong>
   <%= pluralize(@accident.ausfall, "Tag", "Tage") %>
 </p>
-
-<%= link_to 'Aufgabe erstellen', new_task_path(@accident.id, accident: true) if current_user_sifa?%>
-
+<% if current_user_sifa?%>
+<!-- Übergabeparameter werden in der Session gespeichert-->
+<% session[:ar_id] = @accident.id %>
+<% session[:accident] = true %>
+<% session[:report] = false %>
+<%= link_to 'Aufgabe erstellen', new_task_path%>
+<%end%>

@@ -2,7 +2,7 @@
 <div class="top-bar-section">
     <ul>
       <li class="has-dropdown">
-        <a href="#">Menu</a>
+        <a href="#"><%= link_to "Start", root_path%></a>
         <ul class="dropdown">
           <% if current_user %>
             <li><%= link_to current_user.name, user_path(current_user.id) %></li>

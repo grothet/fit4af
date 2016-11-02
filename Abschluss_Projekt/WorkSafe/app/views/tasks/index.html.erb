@@ -2,6 +2,8 @@
 <%if @tasks.empty? %>
   <p>Keine Aufgabe vorhanden</p>
 <%else%>
+<% not_pass_report = true %>
+<% not_pass_accident = true %>
 
 <h5>Unfälle:</h5>
   <table>
@@ -33,10 +35,15 @@
                 <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <%end%>
             </tr>
-
+            <% not_pass_accident = false%>
           <%end%>
         <%end%>
+
+        <%if not_pass_accident%>
+           <td>Keine Aufgabe vorhanden</td>
+        <%end%>
     </tbody>
+
   </table>
 <h5>Ereignisse:</h5>
   <table>
@@ -68,7 +75,12 @@
                 <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <%end%>
             </tr>
+            <% not_pass_report = false%>
           <%end%>
+        <%end%>
+
+        <%if not_pass_report%>
+           <td>Keine Aufgabe vorhanden</td>
         <%end%>
     </tbody>
   </table>  
