@@ -1,6 +1,4 @@
-
-
-<h1>Abteilungen</h1>
+<h3>Abteilungen</h3>
 
 <table>
   <thead>
@@ -14,9 +12,8 @@
     <% @divisions.each do |division| %>
       <tr>
         <td><%= division.bezeichnung %></td>
-        <td><%= link_to 'Show', division %></td>
-        <td><%= link_to 'Edit', edit_division_path(division) %></td>
-        <td><%= link_to 'Destroy', division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Anzeigen', division %></td>
+        <td><%= link_to 'Ändern', edit_division_path(division) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,5 +21,5 @@
 
 <br>
 
-<%= link_to 'New Division', new_division_path %> |
+<%= link_to 'Neue Abteilung', new_division_path %> |
 <%= link_to 'Admin Bereich', admin_pages_index_path %>

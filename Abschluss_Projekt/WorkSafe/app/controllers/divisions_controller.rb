@@ -1,5 +1,6 @@
 class DivisionsController < ApplicationController
   before_action :set_division, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:show, :edit, :update, :index, :destroy]
 
   # GET /divisions
   # GET /divisions.json

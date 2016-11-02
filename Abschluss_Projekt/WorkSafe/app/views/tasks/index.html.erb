@@ -1,4 +1,8 @@
-<h1>Aufgaben</h1>
+<h3>Aufgaben</h3>
+<%if @tasks.empty? %>
+  <p>Keine Aufgabe vorhanden</p>
+<%else%>
+
 <h5>Unfälle:</h5>
   <table>
     <thead>
@@ -25,13 +29,13 @@
               <td><%= task.modi_nr %></td>
               <td><%= link_to 'Anzeigen', task %></td>
               <% if current_user_sifa? %>
-              <td><%= link_to 'Ändern', edit_task_path(task) %></td>
-              <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Ändern', edit_task_path(task) %></td>
+                <td><%= link_to 'Löschen', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <%end%>
             </tr>
+
           <%end%>
         <%end%>
-
     </tbody>
   </table>
 <h5>Ereignisse:</h5>
@@ -68,7 +72,7 @@
         <%end%>
     </tbody>
   </table>  
-
+<%end%>
 
 
 

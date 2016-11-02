@@ -31,5 +31,5 @@ Kategorie
 <%= collection_select nil, :search_category, Category.all, :id, :titel, :prompt => "Bitte Wählen"%>
 Ort
 <%=collection_select nil,:search_place, Place.all, :id, :bezeichnung, :prompt => "Bitte Wählen"%>
-<%= submit_tag "Search" %>
+<%= submit_tag "Suchen" %>
 <%end%>

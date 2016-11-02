@@ -1,5 +1,4 @@
-
-
+<br>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -25,5 +24,5 @@
   <%= @user.verantwortlich %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> | 
-<%=link_to "Admin Bereich", admin_pages_index_path if current_user_admin?%>
+
+<%= link_to 'Ändern', edit_user_path(@user)%> <br>
