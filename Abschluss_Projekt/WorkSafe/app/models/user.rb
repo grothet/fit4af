@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	belongs_to :division
+	has_many	:tasks
+	has_many :reports
 
 	#validations:
 	validates :name, presence: true

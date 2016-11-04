@@ -4,7 +4,9 @@ class Report < ActiveRecord::Base
 	serialize :avatars
 	belongs_to :category
 	belongs_to :place
-	belongs_to :task
+	has_many :tasks
+	belongs_to :user
+
 
 	#validations:
 	validates :user_id, presence: true

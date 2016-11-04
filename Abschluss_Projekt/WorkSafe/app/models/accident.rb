@@ -1,5 +1,5 @@
 class Accident < ActiveRecord::Base
-		belongs_to :task
+		has_many :task
 
 		#validations:
 		validates :wann, presence: true
