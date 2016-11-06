@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
 	belongs_to :report
 	belongs_to :accident
-	belongs_to :users
+	belongs_to :user
 
 	#validations:
 	validates :start_date, presence: true
